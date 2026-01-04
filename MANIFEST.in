@@ -1,0 +1,16 @@
+# Include the README, license, and changelog in the sdist
+include README.md
+include LICENSE
+include CHANGELOG.md
+include pyproject.toml
+include MANIFEST.in
+
+# Include all documentation files
+recursive-include docs *
+
+# Include all Python source files
+recursive-include src *
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude __pycache__/*
