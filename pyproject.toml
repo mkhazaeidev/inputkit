@@ -48,6 +48,7 @@ Homepage = "https://github.com/mkhazaeidev/inputkit"
 Documentation = "https://github.com/mkhazaeidev/inputkit/docs"
 Repository = "https://github.com/mkhazaeidev/inputkit"
 Issues = "https://github.com/mkhazaeidev/inputkit/issues"
+Changelog = "https://github.com/mkhazaeidev/inputkit/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]
