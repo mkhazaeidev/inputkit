@@ -1,0 +1,111 @@
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inputkit"
+version = "0.1.0"
+description = "Simple and cross-platform terminal input with reusable validators."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Mohammad Khazaei", email = "mkhazaei.dev@gmail.com" }
+]
+keywords = ["CLI", "input", "validators", "terminal", "python", "user-input", "validation", "cli-toolkit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Utilities",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mkhazaeidev/inputkit"
+Documentation = "https://github.com/mkhazaeidev/inputkit/docs"
+Repository = "https://github.com/mkhazaeidev/inputkit"
+Issues = "https://github.com/mkhazaeidev/inputkit/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--tb=short",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_equality = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "tests.*",
+]
+disallow_untyped_defs = false
