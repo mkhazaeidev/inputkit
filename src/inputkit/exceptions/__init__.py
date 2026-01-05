@@ -1,18 +1,33 @@
 """
 exceptions
 
-The inputkit.exceptions package defines error classes for inputkit.
+The inputkit.exceptions package contains all error and exception classes used in inputkit.
 
-This package organizes exceptions by purpose:
-    - base: Root exception class (InputKitError)
-    - validation: For all validation/validator failures
-    - input: For input workflow and user/cancellation errors
-    - system: For platform or environment problems
+You can import any exception directly from this package to simplify error handling and maintain clean application code.
 
-Import exception classes for safe error handling in application code.
+Available exceptions:
+    - InputKitError (base)
+    - ValidationError, RequiredValueError, InvalidTypeError, PatternMismatchError, LengthError,
+      RangeError, PasswordStrengthError, ValidatorConfigurationError, MultiValidationError,
+      InternalInputKitError
+    - InputError, InputCancelled, EmptyInputError, RetryLimitExceeded, InputInterrupted
+    - SystemError, UnsupportedPlatformError, TerminalNotAvailableError
 """
-from .validation import *
-from .input import *
-from .system import *
+from .base import InputKitError
+from .validation import (
+    ValidationError, RequiredValueError, InvalidTypeError, PatternMismatchError, LengthError,
+    RangeError, PasswordStrengthError, ValidatorConfigurationError, MultiValidationError,
+    InternalInputKitError)
+from .input import (
+    InputError, InputCancelled, EmptyInputError, RetryLimitExceeded, InputInterrupted)
+from .system import (
+    SystemError, UnsupportedPlatformError, TerminalNotAvailableError)
 
-__all__ = []  # Expose public exception classes as needed
+__all__ = [
+    "InputKitError",
+    "ValidationError", "RequiredValueError", "InvalidTypeError", "PatternMismatchError", "LengthError",
+    "RangeError", "PasswordStrengthError", "ValidatorConfigurationError", "MultiValidationError",
+    "InternalInputKitError",
+    "InputError", "InputCancelled", "EmptyInputError", "RetryLimitExceeded", "InputInterrupted",
+    "SystemError", "UnsupportedPlatformError", "TerminalNotAvailableError"
+]
